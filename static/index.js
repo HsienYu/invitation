@@ -117,7 +117,7 @@ window.onload = function () {
         for (i = 0; i < 6; i++) {
             for (n = 0; n < 6; n++) {
                 cell[i] = n;
-                cell[i] = window.open("./cell.html", 'Cell' + n, cellWindowFeatures);
+                cell[i] = window.open(`/static/cell${n}.html`, 'Cell' + n, cellWindowFeatures);
             }
         }
     }
