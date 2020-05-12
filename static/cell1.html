@@ -7,26 +7,9 @@
     <link rel="stylesheet" href="/static/style.css" media="screen" title="no title" charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="/static/index.js"></script>
-    <script>
-        var refresh = function () {
-            $.ajax({
-                type: "GET",
-                url: "http://127.0.0.1:8080/message",
-                dataType: 'JSON',
-                success: function (response) {
-                    //console.log(response);
-                    document.getElementById('date').innerHTML = response["lbRN7gJm4lo"].datetime;
-                    document.getElementById('live').innerHTML = response["lbRN7gJm4lo"].message;
-                },
-            })
-        }
-        setInterval("refresh()", 1000);
-    </script>
 </head>
 
 <body>
-    <h1 id="date"></h1>
-    <h1 id="live"></h1>
     <div id="cell-container"></div>
     <button type="button" id="button"></button>
 </body>

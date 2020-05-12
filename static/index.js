@@ -58,7 +58,6 @@ var moveCell = function () {
     windowX.now += Math.round(windowX.velocity);
     windowY.velocity *= 1 + Math.random() * 0.003;
     windowY.now += Math.round(windowY.velocity);
-
     window.moveTo(windowX.now, windowY.now);
     windowTop = windowY.now;
     windowRight = windowX.now + window.outerWidth;
@@ -70,14 +69,14 @@ var moveCell = function () {
 
 var reset = function () {
     if (windowX.velocity == 0) {
-        windowX.velocity = Math.round(Math.random() * 20) + 20;
+        windowX.velocity = Math.round(Math.random() * 2) + 20;
         if (Math.round(Math.random(0, 1))) windowX.velocity *= -1;
     } else {
         var temp = windowX.velocity;
-        windowX.velocity = Math.round(Math.random() * 20) + 20;
+        windowX.velocity = Math.round(Math.random() * 2) + 20;
         if (temp < 0) windowX.velocity *= -1;
     };
-    windowY.velocity = Math.round(Math.random() * 20) + 15;
+    windowY.velocity = Math.round(Math.random() * 2) + 15;
     windowY.velocity = Math.abs(windowY.velocity) * -1;
     windowY.now -= windowWidth;
 };
@@ -109,13 +108,16 @@ var wait = function () {
 
 window.onload = function () {
     var button = document.getElementById('button');
-    var cellWindowFeatures = "menubar=no,location=yes,resizable=no,scrollbars=no,status=yes,width=390,height=400";
 
     checkDevice();
 
     button.onclick = function () {
         for (i = 0; i < 6; i++) {
             for (n = 0; n < 6; n++) {
+                var x, y;
+                x = Math.floor(Math.random() * Math.floor(screen.width));
+                y = Math.floor(Math.random() * Math.floor(screen.height));
+                var cellWindowFeatures = `menubar=no,location=yes,resizable=no,scrollbars=no,status=yes,width=390,height=400, top=${x}, left=${y}`;
                 cell[i] = n;
                 cell[i] = window.open(`/static/cell${n}.html`, 'Cell' + n, cellWindowFeatures);
             }
