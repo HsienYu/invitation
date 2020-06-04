@@ -109,7 +109,7 @@ var wait = function () {
 window.onload = function () {
     var button = document.getElementById('button');
 
-    checkDevice();
+    //checkDevice();
 
     button.onclick = function () {
         for (i = 0; i < 6; i++) {
